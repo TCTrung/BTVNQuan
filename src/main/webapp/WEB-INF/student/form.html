@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select {
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg fill="%231f2d3d" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat;
+            background-position: 95% center;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"],
+        button a {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.3s; /* Hiệu ứng chuyển động màu nền */
+        }
+
+        button[type="submit"]:hover,
+        button a:hover {
+            background-color: #45a049;
+        }
+
+        button a {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Form Student</h1>
+<p th:text="${message}"></p>
+<form method="post" th:object="${student}">
+    <label for="name">Name</label>
+    <input type="text" id="name" th:field="*{name}">
+    <label for="age">Age</label>
+    <input type="text" id="age" th:field="*{age}">
+    <label for="gender">Gender</label>
+    <select th:field="*{gender}" id="gender">
+        <option value="male">Nam</option>
+        <option value="female">Nữ</option>
+        <option value="other">Khác</option>
+    </select>
+    <div>
+        <label for="classroom">Class</label>
+        <select id="classroom" th:field="*{classroom}">
+            <option th:each="c : ${classes}" th:value="${c.id}" th:text="${c.name}"></option>
+        </select>
+    </div>
+    <label for="address">Address</label>
+    <textarea id="address" th:field="*{address}"></textarea>
+
+    <button type="submit">Save</button>
+</form>
+<button><a th:href="@{/api/students}">Back</a></button>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

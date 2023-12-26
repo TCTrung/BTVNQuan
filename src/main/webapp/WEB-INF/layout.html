@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Spring Customer</title>
+
+    <style>
+        h3 {
+            background-color: #3498db; /* Màu xanh đậm */
+            color: #fff; /* Màu trắng */
+            padding: 10px 20px; /* Padding trên và dưới 10px, Padding bên trái và bên phải 20px */
+            margin-bottom: 20px; /* Khoảng cách phía dưới 20px */
+        }
+
+        footer {
+            background-color: #2c3e50; /* Màu đen đậm */
+            color: #ecf0f1; /* Màu trắng */
+            padding: 10px;
+            text-align: center; /* Căn giữa nội dung */
+        }
+
+        #students {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #students td, #students th {
+            border: 1px solid #ddd;
+            padding: 12px; /* Tăng kích thước padding */
+        }
+
+        #students tr:nth-child(even) {
+            background-color: #f9f9f9; /* Màu xám nhạt cho hàng chẵn */
+        }
+
+        #students tr:hover {
+            background-color: #f1f1f1; /* Màu xám nhạt khi hover */
+        }
+
+        #students th {
+            padding-top: 14px; /* Tăng kích thước padding trên */
+            padding-bottom: 14px; /* Tăng kích thước padding dưới */
+            text-align: left;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        input[type=text], input[type=email] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s; /* Hiệu ứng chuyển động màu nền */
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        #form {
+            max-width: 500px;
+            margin: 0 auto; /* Căn giữa theo chiều ngang */
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .notify span {
+            font-size: 16px; /* Tăng kích thước chữ */
+            color: #3498db; /* Màu xanh dương */
+        }
+
+    </style>
+</head>
+<body>
+
+<footer th:fragment="footer">
+    &copy; 2024 Happy New Year !
+</footer>
+</body>
+</html>

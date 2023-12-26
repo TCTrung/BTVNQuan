@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 600px;
+        }
+
+        table, a, h1 {
+            margin: auto;
+        }
+
+        table, tr, th, td {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/api/class/create}">Create new</a>
+
+<h1>List Classroom</h1>
+
+<table id="students">
+    <tr>
+        <th>STT</th>
+        <th>Id</th>
+        <th>Name</th>
+
+        <th>Action</th>
+    </tr>
+    <tr th:each="c, status : ${class}" >
+        <td th:text="${status.count}"></td>
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+
+        <td>
+            <a th:href="@{/api/class/update/{id}(id=${c.id})}">
+                <button>Update</button>
+            </a>
+        </td>
+    </tr>
+</table>
+<button><a th:href="@{/api/students}">List Student</a></button>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
